@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Fiddler手机抓包使用, Blog">
-    <meta name="description" content="学习使用Fiddler软件手机抓包的坑与笔记">
+    <meta name="keywords" content="绕过SNI审查直连Pixiv, Blog">
+    <meta name="description" content="一些访问Pixiv及相关的工具项目">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Fiddler手机抓包使用 | Hi,YJW</title>
+    <title>绕过SNI审查直连Pixiv | Hi,YJW</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
@@ -303,12 +303,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Fiddler手机抓包使用</h1>
+                    <h1 class="description center-align post-title">绕过SNI审查直连Pixiv</h1>
                 </div>
             </div>
         </div>
@@ -425,12 +425,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                <span class="chip bg-color">爬虫</span>
+                            <a href="/tags/%E7%BD%91%E7%AB%99/">
+                                <span class="chip bg-color">网站</span>
                             </a>
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">技术</span>
                             </a>
                         
                     </div>
@@ -441,8 +441,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Software/" class="post-category">
-                                Software
+                            <a href="/categories/Web/" class="post-category">
+                                Web
                             </a>
                         
                     </div>
@@ -454,7 +454,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-29
+                    2020-01-31
                 </div>
                 
 
@@ -471,52 +471,158 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>手机上无法直接查看网络请求数据，需要使用抓包工具。Fiddler是一个免费的web调试代理，可以用它实现记录、查看和调试手机终端和远程服务器之间的http/https通信。</p>
-<h2 id="PC端Fiddler使用"><a href="#PC端Fiddler使用" class="headerlink" title="PC端Fiddler使用"></a>PC端Fiddler使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li><a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">官方网站</a></li>
-</ul>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
-<li>手机上的应用很多涉及到个人信息，采用比较安全的HTTPS加密过，而fiddler默认只捕获http会话而不抓取HTTPS报文，导致打开fiddler后就打不开https网页。<br> <strong>解决办法</strong>：打开Fiddler-&gt;Tool-&gt;Fiddler Options-&gt;HTTPS tab，勾选上并Capture HTTPS CONNECTs（捕获 HTTPS 连接）和 Decrypt HTTPS traffic （HTTPS 请求解密），并安装证书（首次使用无证书，会弹出是否信任fiddler证书和安全提示，直接点击yes就行），重启Fiddler生效。在localhost:8888中也可以安装证书。</li>
-<li>如果想要捕获手机上的通信数据，就需要手机连接上Fiddler代理，而Fiddler默认是不允许其他设备进行连接的。<br> <strong>解决办法</strong>：点击 Fiddler-&gt;Tools -&gt; Options，在 Connections 面板选中 Allow remote computers to connect 允许其他设备连接（此操作需重启Fiddler生效）。</li>
-<li>修改手机WLAN需先代理查看电脑ip地址。<br> <strong>解决办法</strong>：可通过cmd命令行输入<code>ipconfig</code>查询。也可以将鼠标置于fiddler右上角的online图标中显示电脑的ip地址。</li>
-</ol>
-<h2 id="手机端Fiddler使用"><a href="#手机端Fiddler使用" class="headerlink" title="手机端Fiddler使用"></a>手机端Fiddler使用</h2><h3 id="证书配置"><a href="#证书配置" class="headerlink" title="证书配置"></a>证书配置</h3><p>需要在移动终端（手机或pad）上指定代理服务器为Fiddler所在主机IP（需要处于同一网络），端口默认8888（即在PC端配置的端口）。</p>
-<ol>
-<li>要保证手机和安装有fiddler的电脑处在同一局域网内，手机能ping通电脑。<br> <strong>解决办法</strong>：家用或办公环境把PC和手机WLAN连接上同一个路由器的无线SSID获取到同一网段内的IP地址即可。在你的手机上打开你连接的 wifi高级设置，设置http代理服务器和端口,IP<br>设置为DHCP。这里的服务器地址就是PC端刚找到的IPv4地址，端口默认8888。</li>
-<li>在手机上需要安装Fiddler根证书，因为Fiddler是通过自己生成的证书对网络请求重新签名进行https会话解密的，如果不安装证书的话只能抓取HTTP请求。<br> <strong>解决办法</strong>：打开手机浏览器，输入Fiddler Server地址<code>http://ipv4.fiddler:8888/</code>（因为fiddler装在PC上，所以Fiddler Server地址就是PC的IP地址，带上默认端口号8888)，或直接输入<code>http://pcip:8888/</code>。跳转到 Fiddler Echo Service 证书下载页，点击FiddlerRoot certificate下载并安装,为证书命名后点击确定。</li>
-</ol>
-<h3 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h3><ol>
-<li><p>PC端Log报错：<br><code>!SecureClientPipeDirect failed: System.Security.Authentication.AuthenticationException</code>。<br> <strong>解决办法</strong>：证书未被信任，导致主机拒绝连接。解决报错的方法是将fiddler设置中 Decrypt Https traffic 选项去掉，但是这样很可能将无法抓取https包。有一个<a href="https://stackoverflow.com/questions/33382870/how-to-capture-httpstls-1-0-communications-from-android-app-with-fiddler4" target="_blank" rel="noopener">Stackflow</a>的解释：</p>
-<blockquote>
-<p>TLS1.0可能是Fiddler中最受支持的HTTPS协议。如果发生报错，相关的Android应用程序已启用Certificate Pinning（证书锁定）。如果您非常想避免锁定，可以越狱设备并使用许多第三方工具箱中的任何一个禁用锁定代码即可。</p>
-</blockquote>
-<p> 关于证书固定：</p>
-<blockquote>
-<p>极少数HTTPS客户端应用程序支持一种称为“证书固定”的功能，该功能会将客户端应用程序硬编码为仅接受一个特定的证书。当证书固定的应用程序通过CONNECT隧道与Fiddler进行HTTPS握手时，它将检查响应的证书，并在发现Fiddler生成的证书时拒绝发送任何进一步的请求。不幸的是，没有通用的解决方法可以解决此问题。</p>
-</blockquote>
-</li>
-<li><p>手机端打不开Fiddler Server地址，或手机设置代理后，无法访问网络了，如断网般。<br> <strong>解决办法</strong>：</p>
-<ol>
-<li>在PC端打开注册表，在HKEY_CURRENT_USER\SOFTWARE\Microsoft\Fiddler2下创建一个DWORD，值设置为80（十进制）</li>
-<li>编写FiddlerScript rule，点击Rules &gt; Customize Rules,用ctr+f查找到OnBeforeRequest方法添加一行代码:<br><code>if (oSession.host.toLowerCase() == &quot;webserver:8888&quot;){ oSession.host = &quot;webserver:80&quot;;}</code><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//pass</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>m_AlwaysFresh <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>oSession<span class="token punctuation">.</span>oRequest<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token function">Exists</span><span class="token punctuation">(</span><span class="token string">"If-Modified-Since"</span><span class="token punctuation">)</span> <span class="token operator">||</span> oSession<span class="token punctuation">.</span>oRequest<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token function">Exists</span><span class="token punctuation">(</span><span class="token string">"If-None-Match"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-     <span class="token punctuation">{</span>
-         oSession<span class="token punctuation">.</span><span class="token function">utilCreateResponseAndBypassServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-         oSession<span class="token punctuation">.</span>responseCode <span class="token operator">=</span> <span class="token number">304</span><span class="token punctuation">;</span>
-         oSession<span class="token punctuation">[</span><span class="token string">"ui-backcolor"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Lavender"</span><span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-     <span class="token keyword">if</span> <span class="token punctuation">(</span>oSession<span class="token punctuation">.</span>host<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"webserver:8888"</span><span class="token punctuation">)</span><span class="token punctuation">{</span> oSession<span class="token punctuation">.</span>host <span class="token operator">=</span> <span class="token string">"webserver:80"</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
- <span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//pass</span></code></pre>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="还原手机状态"><a href="#还原手机状态" class="headerlink" title="还原手机状态"></a>还原手机状态</h3><p>抓包结束后，手动还原手机状态，方法如下（不同机型可能有些微差别）：</p>
-<ol>
-<li>停止电脑对手机的网络监控：系统设置-WLAN，长按wifi修改网络，高级选项找到代理，去掉手动代理即可；</li>
-<li>删除手机中证书：安卓系统设置-系统-设备安全-受信任的凭据-用户 ，点击证书删除即可；</li>
-</ol>
+                <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>2020/1/31的情况是<code>www.pixiv.net</code>有污染和阻断故无法通过常规手段访问，其APP端的<code>app-api.pixiv.net</code>只有污染，图床<code>i.pximg.net</code>可正常访问。因此，我们可以通过Cloudflare的公众DNS获取真实ip，从而进行访问<code>app-api.pixiv.net</code>，从其中的api中进行登录与查询，最终实现从图库中获取图片。(从图库中获取图片需要refer为Pixiv网域)</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>先写代码查询DNS：</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># encoding = utf-8</span>
+<span class="token keyword">import</span> requests
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    hostname <span class="token operator">=</span> <span class="token string">"app-api.pixiv.net"</span>
+    url <span class="token operator">=</span> <span class="token string">"https://1.0.0.1/dns-query"</span> <span class="token comment" spellcheck="true"># 查询DNS</span>
+    params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'ct'</span><span class="token punctuation">:</span> <span class="token string">'application/dns-json'</span><span class="token punctuation">,</span>
+        <span class="token string">'name'</span><span class="token punctuation">:</span> hostname<span class="token punctuation">,</span>
+        <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span>
+        <span class="token string">'do'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token punctuation">,</span>
+        <span class="token string">'cd'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>Out：</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    'Status'<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    'TC'<span class="token operator">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+    'RD'<span class="token operator">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+    'RA'<span class="token operator">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+    'AD'<span class="token operator">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+    'CD'<span class="token operator">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+    'Question'<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        'name'<span class="token operator">:</span> 'app-api.pixiv.net.'<span class="token punctuation">,</span>
+        'type'<span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    'Answer'<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            'name'<span class="token operator">:</span> 'app-api.pixiv.net.'<span class="token punctuation">,</span>
+            'type'<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            'TTL'<span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
+            'data'<span class="token operator">:</span> '<span class="token number">210.140</span>.<span class="token number">131.220</span>'
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            'name'<span class="token operator">:</span> 'app-api.pixiv.net.'<span class="token punctuation">,</span>
+            'type'<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            'TTL'<span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
+            'data'<span class="token operator">:</span> '<span class="token number">210.140</span>.<span class="token number">131.223</span>'
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            'name'<span class="token operator">:</span> 'app-api.pixiv.net.'<span class="token punctuation">,</span>
+            'type'<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            'TTL'<span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
+            'data'<span class="token operator">:</span> '<span class="token number">210.140</span>.<span class="token number">131.225</span>'
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<p>显然，获取其中一个IP即可。接下来尝试登录：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> hashlib
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+
+client_id <span class="token operator">=</span> <span class="token string">'MOBrBDS8blbauoSck0ZfDbtuzpyT'</span> <span class="token comment" spellcheck="true"># 假装APP应用登录</span>
+client_secret <span class="token operator">=</span> <span class="token string">'lsACyCD94FhDUtGTXi3QzcFE2uU1hqtDaKeqrdwj'</span>
+hash_secret <span class="token operator">=</span> <span class="token string">'28c1fdd170a5204386cb1313c7077b34f83e4aaf4aa829ce78c231e05b0bae2c'</span>
+local_time <span class="token operator">=</span> datetime<span class="token punctuation">.</span>utcnow<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y-%m-%dT%H:%M:%S+00:00'</span><span class="token punctuation">)</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'host'</span><span class="token punctuation">:</span> <span class="token string">'oauth.secure.pixiv.net'</span><span class="token punctuation">,</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'PixivAndroidApp/5.0.64 (Android 6.0)'</span><span class="token punctuation">,</span>
+    <span class="token string">'X-Client-Time'</span><span class="token punctuation">:</span> local_time<span class="token punctuation">,</span>
+    <span class="token string">'X-Client-Hash'</span><span class="token punctuation">:</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">(</span>local_time <span class="token operator">+</span> hash_secret<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'en-us'</span>
+<span class="token punctuation">}</span>
+data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'get_secure_url'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">'client_id'</span><span class="token punctuation">:</span> client_id<span class="token punctuation">,</span>
+    <span class="token string">'client_secret'</span><span class="token punctuation">:</span> client_secret<span class="token punctuation">,</span>
+    <span class="token string">'grant_type'</span><span class="token punctuation">:</span> <span class="token string">'password'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">#认证类型，有token与password两种</span>
+    <span class="token string">'username'</span><span class="token punctuation">:</span> pixiv_id<span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 用户名</span>
+    <span class="token string">'password'</span><span class="token punctuation">:</span> password <span class="token comment" spellcheck="true"># 密码</span>
+<span class="token punctuation">}</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'https://210.140.131.220'</span> <span class="token operator">+</span> <span class="token string">'/auth/token'</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">,</span> stream<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                            verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span></code></pre>
+<p>Out:</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"response"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"access_token"</span><span class="token operator">:</span> <span class="token string">"omWoN1QUQ4OF9ENF4LTHObdR9K5eB1COACnOavlG5J1"</span><span class="token punctuation">,</span>
+        <span class="token property">"expires_in"</span><span class="token operator">:</span> <span class="token number">3600</span><span class="token punctuation">,</span>
+        <span class="token property">"token_type"</span><span class="token operator">:</span> <span class="token string">"bearer"</span><span class="token punctuation">,</span>
+        <span class="token property">"scope"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+        <span class="token property">"refresh_token"</span><span class="token operator">:</span> <span class="token string">"3ysYSnD71aFttkt1XgBr-XxwjiMOGtdBmaAZbYFT2e1"</span><span class="token punctuation">,</span>
+        <span class="token property">"user"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"profile_image_urls"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"px_16x16"</span><span class="token operator">:</span> <span class="token string">"https:\/\/i.pximg.net\/user-profile\/img\/2018\/02\/11\/13\/24\/32\/13810489_848de9cbfdb78a44b1319634ccee5d31_16.jpg"</span><span class="token punctuation">,</span>
+                <span class="token property">"px_50x50"</span><span class="token operator">:</span> <span class="token string">"https:\/\/i.pximg.net\/user-profile\/img\/2018\/02\/11\/13\/24\/32\/13810489_848de9cbfdb78a44b1319634ccee5d31_50.jpg"</span><span class="token punctuation">,</span>
+                <span class="token property">"px_170x170"</span><span class="token operator">:</span> <span class="token string">"https:\/\/i.pximg.net\/user-profile\/img\/2018\/02\/11\/13\/24\/32\/13810489_848de9cbfdb78a44b1319634ccee5d31_170.jpg"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"11111111"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Ryan"</span><span class="token punctuation">,</span>
+            <span class="token property">"account"</span><span class="token operator">:</span> <span class="token string">"user_ynvp1111"</span><span class="token punctuation">,</span>
+            <span class="token property">"mail_address"</span><span class="token operator">:</span> <span class="token string">"123456789@qq.com"</span><span class="token punctuation">,</span>
+            <span class="token property">"is_premium"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"x_restrict"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">"is_mail_authorized"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"device_token"</span><span class="token operator">:</span> <span class="token string">"4fae17434ceedc22a7da75ca27a1a7b1"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>顺便收到了一条Pixiv事务局发来的email，表明从中国登录。由上绕过SNI，成功登录并获取了bearer token,下次可以直接填入登录。</p>
+<h2 id="完善代码"><a href="#完善代码" class="headerlink" title="完善代码"></a>完善代码</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># encoding = utf-8</span>
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> datetime <span class="token keyword">import</span> datetime
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    hostname <span class="token operator">=</span> <span class="token string">"app-api.pixiv.net"</span>
+    timeout <span class="token operator">=</span> <span class="token number">3</span>
+    <span class="token comment" spellcheck="true"># url = "https://cloudflare-dns.com/dns-query"</span>
+    url <span class="token operator">=</span> <span class="token string">"https://1.0.0.1/dns-query"</span>
+    params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'ct'</span><span class="token punctuation">:</span> <span class="token string">'application/dns-json'</span><span class="token punctuation">,</span>
+        <span class="token string">'name'</span><span class="token punctuation">:</span> hostname<span class="token punctuation">,</span>
+        <span class="token string">'type'</span><span class="token punctuation">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span>
+        <span class="token string">'do'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token punctuation">,</span>
+        <span class="token string">'cd'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> timeout<span class="token operator">=</span>timeout<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 部分地区可能无法访问1.0.0.1，此时尝试域名解析</span>
+        url <span class="token operator">=</span> <span class="token string">"https://cloudflare-dns.com/dns-query"</span>
+        response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> timeout<span class="token operator">=</span>timeout<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># response = requests.get("http://"+"210.140.131.220", params=params,headers=header())</span>
+    <span class="token comment" spellcheck="true"># print(response.text)</span>
+    client_id <span class="token operator">=</span> <span class="token string">'MOBrBDS8blbauoSck0ZfDbtuzpyT'</span>
+    client_secret <span class="token operator">=</span> <span class="token string">'lsACyCD94FhDUtGTXi3QzcFE2uU1hqtDaKeqrdwj'</span>
+    hash_secret <span class="token operator">=</span> <span class="token string">'28c1fdd170a5204386cb1313c7077b34f83e4aaf4aa829ce78c231e05b0bae2c'</span>
+    local_time <span class="token operator">=</span> datetime<span class="token punctuation">.</span>utcnow<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">'%Y-%m-%dT%H:%M:%S+00:00'</span><span class="token punctuation">)</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'host'</span><span class="token punctuation">:</span> <span class="token string">'oauth.secure.pixiv.net'</span><span class="token punctuation">,</span>
+        <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'PixivAndroidApp/5.0.64 (Android 6.0)'</span><span class="token punctuation">,</span>
+        <span class="token string">'X-Client-Time'</span><span class="token punctuation">:</span> local_time<span class="token punctuation">,</span>
+        <span class="token string">'X-Client-Hash'</span><span class="token punctuation">:</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">(</span>local_time <span class="token operator">+</span> hash_secret<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'en-us'</span>
+    <span class="token punctuation">}</span>
+    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'get_secure_url'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token string">'client_id'</span><span class="token punctuation">:</span> client_id<span class="token punctuation">,</span>
+        <span class="token string">'client_secret'</span><span class="token punctuation">:</span> client_secret<span class="token punctuation">,</span>
+        <span class="token string">'grant_type'</span><span class="token punctuation">:</span> <span class="token string">'password'</span><span class="token punctuation">,</span>
+        <span class="token string">'username'</span><span class="token punctuation">:</span> pixiv_id<span class="token punctuation">,</span>
+        <span class="token string">'password'</span><span class="token punctuation">:</span> password
+    <span class="token punctuation">}</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"https://"</span> <span class="token operator">+</span> response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'Answer'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'/auth/token'</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span>
+                             data<span class="token operator">=</span>data<span class="token punctuation">,</span> stream<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                             verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+</code></pre>
+<p>登陆后可通过<code>app-api.pixiv.net</code>的接口进行各类操作，IP已经获取，因此只需在IP上进行相对路径即可。</p>
 
             </div>
             <hr/>
@@ -530,12 +636,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%88%AC%E8%99%AB/">
-                                    <span class="chip bg-color">爬虫</span>
+                                <a href="/tags/%E7%BD%91%E7%AB%99/">
+                                    <span class="chip bg-color">网站</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">技术</span>
                                 </a>
                             
                         </div>
@@ -706,7 +812,7 @@
         repo: 'Web-learning',
         owner: 'yjw1268',
         admin: "yjw1268",
-        id: '2020-01-29T12-12-07',
+        id: '2020-01-31T16-32-40',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -727,9 +833,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/01/31/%E7%BB%95%E8%BF%87SNI%E5%AE%A1%E6%9F%A5%E7%9B%B4%E8%BF%9EPixiv/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/10.jpg" class="responsive-img" alt="绕过SNI审查直连Pixiv">
+                        
+                        <span class="card-title">绕过SNI审查直连Pixiv</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一些访问Pixiv及相关的工具项目
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web/" class="post-category">
+                                    Web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%AB%99/">
+                        <span class="chip bg-color">网站</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/01/30/Pixiv%E7%BD%91%E7%AB%99%E7%9B%B8%E5%85%B3Proj/">
                     <div class="card-image">
@@ -747,9 +908,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -775,59 +936,6 @@
                     
                     <a href="/tags/Nginx/">
                         <span class="chip bg-color">Nginx</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/01/27/Hexo%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/7.jpg" class="responsive-img" alt="Hexo框架使用笔记">
-                        
-                        <span class="card-title">Hexo框架使用笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Hexo框架相关的使用技巧~
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%BD%91%E7%AB%99/">
-                        <span class="chip bg-color">网站</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
