@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/2.3.4/aos.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.11/css/lg-fb-comment-box.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
@@ -359,7 +359,7 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">7</a></span>
+    <span class="count"><a href="/">8</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -389,7 +389,7 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">7</a></span>
+    <span class="count"><a href="/">8</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -553,7 +553,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01"]
+            data: ["2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02"]
         },
         yAxis: {
             type: 'value',
@@ -563,7 +563,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,7],
+                data: [0,0,0,0,0,0,0,0,0,0,0,8,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -605,7 +605,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Web","value":4},{"name":"Software","value":2}],
+                data: [{"name":"Software","value":3},{"name":"Web","value":4}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -629,7 +629,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["网站","技术","笔记","Nginx","软件","绘画","爬虫"]
+                data: ["网站","笔记","技术","爬虫","Nginx","软件","绘画"]
             }
         ],
         yAxis: [
@@ -642,7 +642,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [4,2,2,1,1,1,1],
+                data: [4,3,3,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -810,6 +810,18 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/%E7%88%AC%E8%99%AB/">
+                <span class="chip center-align waves-effect waves-light chip-default">爬虫</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                <span class="chip center-align waves-effect waves-light chip-default">笔记</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E7%BD%91%E7%AB%99/">
                 <span class="chip center-align waves-effect waves-light chip-default">网站</span>
             </a>
@@ -836,18 +848,6 @@
             
             <a href="/tags/%E7%BB%98%E7%94%BB/">
                 <span class="chip center-align waves-effect waves-light chip-default">绘画</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E7%88%AC%E8%99%AB/">
-                <span class="chip center-align waves-effect waves-light chip-default">爬虫</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                <span class="chip center-align waves-effect waves-light chip-default">笔记</span>
             </a>
             
             
@@ -1063,7 +1063,7 @@ $(function () {
     <script src="https://cdn.bootcss.com/masonry/4.0.0/masonry.pkgd.min.js"></script>
     <script src="https://cdn.bootcss.com/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
-    <script src="https://cdn.bootcss.com/lightgallery/1.6.11/js/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -1088,10 +1088,10 @@ $(function () {
 </script>
 
     
-    <script src="/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/others/busuanzi.pure.mini.js"></script>
     
 
     

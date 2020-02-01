@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/2.3.4/aos.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.11/css/lg-fb-comment-box.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
@@ -471,7 +471,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>2020/1/31的情况是<code>www.pixiv.net</code>有污染和阻断故无法通过常规手段访问，其APP端的<code>app-api.pixiv.net</code>只有污染，图床<code>i.pximg.net</code>可正常访问。因此，我们可以通过Cloudflare的公众DNS获取真实ip，从而进行访问<code>app-api.pixiv.net</code>，从其中的api中进行登录与查询，最终实现从图库中获取图片。(从图库中获取图片需要refer为Pixiv网域)</p>
+                <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>2020/1/31的情况:<code>www.pixiv.net</code>有污染和阻断故无法通过常规手段访问，其APP端的<code>app-api.pixiv.net</code>只有污染，图床<code>i.pximg.net</code>可正常访问。因此，我们可以通过Cloudflare的公众DNS获取真实ip，从而进行访问<code>app-api.pixiv.net</code>，从其中的api中进行登录与查询，最终实现从图库中获取图片。(从图库中获取图片需要refer为Pixiv网域)</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>先写代码查询DNS：</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># encoding = utf-8</span>
 <span class="token keyword">import</span> requests
@@ -623,6 +623,11 @@ response <span class="token operator">=</span> requests<span class="token punctu
     <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
 </code></pre>
 <p>登陆后可通过<code>app-api.pixiv.net</code>的接口进行各类操作，IP已经获取，因此只需在IP上进行相对路径即可。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>常见的API及JSON格式：</p>
+<ul>
+<li><a href="https://github.com/upbit/pixivpy/wiki/sniffer#get-v1searchworksjson" target="_blank" rel="noopener">PixivPy</a></li>
+<li><a href="http://blog.imaou.com/migrate_pixivpy_sapi_to_papi/" target="_blank" rel="noopener">简介</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -833,48 +838,46 @@ response <span class="token operator">=</span> requests<span class="token punctu
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/31/%E7%BB%95%E8%BF%87SNI%E5%AE%A1%E6%9F%A5%E7%9B%B4%E8%BF%9EPixiv/">
+                <a href="/2020/01/31/%E9%85%B7Q%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%83%A8%E7%BD%B2/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/10.jpg" class="responsive-img" alt="绕过SNI审查直连Pixiv">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/21.jpg" class="responsive-img" alt="酷Q机器人Windows部署">
                         
-                        <span class="card-title">绕过SNI审查直连Pixiv</span>
+                        <span class="card-title">酷Q机器人Windows部署</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一些访问Pixiv及相关的工具项目
+                            QQ机器人部署过程记录
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
+                            <a href="/categories/Software/" class="post-category">
+                                    Software
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%AB%99/">
-                        <span class="chip bg-color">网站</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                     <a href="/tags/%E6%8A%80%E6%9C%AF/">
@@ -1230,7 +1233,7 @@ $(function () {
     <script src="https://cdn.bootcss.com/masonry/4.0.0/masonry.pkgd.min.js"></script>
     <script src="https://cdn.bootcss.com/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
-    <script src="https://cdn.bootcss.com/lightgallery/1.6.11/js/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -1255,10 +1258,10 @@ $(function () {
 </script>
 
     
-    <script src="/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
