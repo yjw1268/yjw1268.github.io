@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="酷Q机器人Windows部署, Blog">
-    <meta name="description" content="QQ机器人部署过程记录">
+    <meta name="keywords" content="Pixiv网站相关, Blog">
+    <meta name="description" content="一些访问Pixiv及相关的工具项目">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>酷Q机器人Windows部署 | Hi,YJW</title>
+    <title>Pixiv网站相关 | Hi,YJW</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
@@ -303,12 +303,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">酷Q机器人Windows部署</h1>
+                    <h1 class="description center-align post-title">Pixiv网站相关</h1>
                 </div>
             </div>
         </div>
@@ -425,12 +425,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/%E7%BD%91%E7%AB%99/">
+                                <span class="chip bg-color">网站</span>
                             </a>
                         
                             <a href="/tags/%E6%8A%80%E6%9C%AF/">
                                 <span class="chip bg-color">技术</span>
+                            </a>
+                        
+                            <a href="/tags/Nginx/">
+                                <span class="chip bg-color">Nginx</span>
                             </a>
                         
                     </div>
@@ -441,8 +445,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Software/" class="post-category">
-                                Software
+                            <a href="/categories/Web/" class="post-category">
+                                Web
                             </a>
                         
                     </div>
@@ -454,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-31
+                    2020-01-30
                 </div>
                 
 
@@ -471,103 +475,38 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>酷Q是一个QQ机器人，可以接入QQ中进行收发消息权限管理等，目前有两个版本：</p>
-<ul>
-<li><a href="https://cqp.cc/t/23253#pid873447" target="_blank" rel="noopener">酷Q Air</a> 继承了老版本（酷Q Lite）简单快速、扩展性强的特点。使用了更强大的 V9 应用机制，并坚持免费，是一个轻巧、免费、高效的机器人核心，功能需要安装“应用”实现。</li>
-<li><a href="https://cqp.cc/t/14901" target="_blank" rel="noopener">酷Q Pro</a>的功能更加强大，捐助开发者可以获取授权时长</li>
-</ul>
-<p>可惜我的服务器Centos版本老旧，支持不了Docker，故现在Windows上试试水。<br>两者功能对比：<img src="https://sr.cqp.me/compare2.png" width="30%" style="margin: 0 auto;"/></p>
-<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><ol>
-<li>酷Q</li>
-<li><a href="https://github.com/richardchien/coolq-http-api/releases" target="_blank" rel="noopener">CoolQ HTTP API 插件</a></li>
-<li>NoneBot  <pre class=" language-bash"><code class="language-bash"> pip <span class="token function">install</span> nonebot</code></pre>
-</li>
-</ol>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
-<li><p>将CoolQ HTTP API 插件最新的 cpk 文件放到 酷Q 的 app 文件夹，然后启用即可。由于要上报事件、接受调用请求，因此需要所有权限。首次启用酷Q可以按步骤进行新手教程。</p>
-</li>
-<li><p>使用编辑器或 IDE，创建一个名为 <code>bot.py</code> 的文件，内容如下:</p>
-<pre class=" language-python"><code class="language-python"> <span class="token keyword">import</span> nonebot
-
- <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-     nonebot<span class="token punctuation">.</span>init<span class="token punctuation">(</span><span class="token punctuation">)</span>
-     nonebot<span class="token punctuation">.</span>load_builtin_plugins<span class="token punctuation">(</span><span class="token punctuation">)</span>
-     nonebot<span class="token punctuation">.</span>run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">8080</span><span class="token punctuation">)</span></code></pre>
-<p> if <code>__name__ == &#39;__main__&#39;</code> 语句块的这几行代码将依次：</p>
+                <p>Pixiv作为一个多灾多难的网站，先后经历了DNS，SNI等阻断，目前已经不能用host方法访问了。不过，由于其IP本身并没有被封禁，借助平时做网站常用反代理服务器 Nginx 即可以完美绕过 SNI 审查。本文记录了一些围绕Pixiv网站的项目&amp;教程，从中也可以学到很多服务端的知识。</p>
+<h2 id="Pixiv是什么"><a href="#Pixiv是什么" class="headerlink" title="Pixiv是什么"></a>Pixiv是什么</h2><p>Pixiv，是一个主要由日本艺术家所组成的虚拟社群，新兴的日本同人画、插画作品分享站点。pixiv目的是提供一个能让艺术家发表他们的插图，并透过评级系统反应其他用户意见之处，网站以用户投稿的原创的图像为中心，辅以标签、书签、作品回应、排行榜等功能形成具有其特色的社交网络。（不是大众的P站哦）</p>
+<p>简而言之，就是有好多ACG大佬和他们的大图~</p>
+<h2 id="访问Pixiv"><a href="#访问Pixiv" class="headerlink" title="访问Pixiv"></a>访问Pixiv</h2><p>一开始，人们可以直接访问Pixiv。</p>
+<p>后来，DNS封锁后，人们通过修改sys的host文件访问Pixiv。</p>
+<p>再后来，Great Firewall（GFW）升级封锁策略，采用了新型的 SNI 阻断方法，hosts 和 DNS 失效，没有技术的人访问不了Pixiv。（流下了没技术的泪水）</p>
+<blockquote>
+<p>SNI(Sever Name Indication)中文名为服务器名称指示，是对 SSL/TLS 协议的扩展，允许在单个 IP 地址上承载多个 SSL 证书。SNI 的实现方式是将 HTTP 头插入到 SSL 的握手中，提交请求的 Host 信息，使得服务器能够切换到正确的域并返回相应的正确证书。即，在连接到服务器建立SSL链接之前先发送要访问站点的域名（Hostname），这样服务器根据这个域名返回一个合适的证书。</p>
+</blockquote>
+<p>现状是<a href="http://www.pixiv.net有污染和阻断，app-api.pixiv.net只有污染，i.pximg.net正常。因此，我们也可以通过app-api.pixiv.net实现登录与作品查询。" target="_blank" rel="noopener">www.pixiv.net有污染和阻断，app-api.pixiv.net只有污染，i.pximg.net正常。因此，我们也可以通过app-api.pixiv.net实现登录与作品查询。</a></p>
+<p>目前几种访问方法：</p>
 <ol>
-<li>使用默认配置初始化 NoneBot 包  </li>
-<li>加载 NoneBot 内置的插件  </li>
-<li>在地址 127.0.0.1:8080 运行 NoneBot</li>
-</ol>
-<p>运行后会产生如下日志：</p>
-<pre><code>[2019-01-26 14:24:15,984 nonebot] INFO: Succeeded to import &quot;nonebot.plugins.base&quot;
-[2019-01-26 14:24:15,987 nonebot] INFO: Running on 127.0.0.1:8080
-Running on https://127.0.0.1:8080 (CTRL + C to quit)</code></pre><blockquote>
-<p>除此之外可能有一些红色的警告信息和 <code>ASGI Framework Lifespan error</code> 等，可以忽略。</p>
-</blockquote>
-</li>
-<li><p>启用CoolQ HTTP API后插件将开启一个 HTTP 服务器来接收请求，默认监听 <code>0.0.0.0:5700</code>，首次启用会生成一个默认配置文件，在 酷Q 的 <code>data\app\io.github.richardchien.coolqhttpapi\config</code> 文件夹中，文件名为 <code>&lt;user_id&gt;.json</code>（<code>&lt;user_id&gt;</code> 为登录的 QQ 号），使用 JSON 格式填写,详见<a href="https://cqhttp.cc/docs/4.13/#/Configuration" target="_blank" rel="noopener">配置</a>。修改这个文件，修改如下配置项（如果不存在相应字段则添加）：</p>
-<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
-   <span class="token property">"ws_reverse_api_url"</span><span class="token operator">:</span> <span class="token string">"ws://127.0.0.1:8080/ws/api/"</span><span class="token punctuation">,</span>
-   <span class="token property">"ws_reverse_event_url"</span><span class="token operator">:</span> <span class="token string">"ws://127.0.0.1:8080/ws/event/"</span><span class="token punctuation">,</span>
-   <span class="token property">"use_ws_reverse"</span><span class="token operator">:</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span></code></pre>
-<blockquote>
-<p>如果配置文件中需要使用中文或其它非 ASCII 字符，则必须使用 UTF-8 without BOM 编码保存文件。</p>
-</blockquote>
-<p> 修改之后，在 酷Q 的应用菜单中重启 CoolQ HTTP API 插件，或直接重启 酷Q，以使新的配置文件生效。</p>
-<p> 一旦新的配置文件正确生效之后，NoneBot 所在的控制台（如果正在运行的话）应该会输出类似下面的内容（两条访问日志）：</p>
-<pre><code> [2019-01-26 16:23:17,159] 172.29.84.18:50639 GET /ws/api/ 1.1 101 - 986
- [2019-01-26 16:23:17,201] 172.29.84.18:53839 GET /ws/event/ 1.1 101 - 551</code></pre><p> 这表示 CoolQ HTTP API 插件已经成功地连接上了 NoneBot，与此同时，插件的日志文件中也会输出反向 WebSocket 连接成功的日志。</p>
-</li>
-<li><p>现在，尝试向你的 QQ 机器人账号发送如下内容：</p>
-<pre class=" language-text"><code class="language-text">/echo 你好，世界</code></pre>
-<p>到这里如果一切都没有问题，你应该会收到机器人给你回复了<code>你好，世界</code>。这一历史性的对话标志着你已经成功地运行了一个 NoneBot 的最小实例。进阶操作可以参照官方文档。</p>
-</li>
-</ol>
-<h2 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h2><p>我们已经运行了一个最小的 NoneBot 实例，在看着 QQ 机器人回复了自己的消息的同时，这是如何实现的？具体来说，NoneBot、CoolQ HTTP API 插件、酷Q，这三者是如何协同工作的？本章将对这个问题做一个初步解答。</p>
-<h3 id="一切从酷Q开始"><a href="#一切从酷Q开始" class="headerlink" title="一切从酷Q开始"></a>一切从酷Q开始</h3><p>酷Q扮演着「无头 QQ 客户端」的角色，一切的消息、通知、请求的发送和接收，最根本上都是由它来完成的，我们的最小 NoneBot 实例也不例外。</p>
-<p>首先，我们向机器人发送的 <code>/echo 你好，世界</code> 进入腾讯的服务器，后者随后会把消息推送给 酷Q，就像推送给一个真正的 QQ 客户端一样。到这里，酷Q 就已经收到了我们发送的消息了。</p>
-<h3 id="进入-CoolQ-HTTP-API-插件"><a href="#进入-CoolQ-HTTP-API-插件" class="headerlink" title="进入 CoolQ HTTP API 插件"></a>进入 CoolQ HTTP API 插件</h3><p>酷Q 在收到消息之后，按优先级依次将消息转交给已启用的各插件处理，在我们的例子中，只有一个插件，就是 CoolQ HTTP API 插件。</p>
-<p>CoolQ HTTP API 插件收到消息后，会将其包装为一个统一的事件格式，并对消息内容进行一个初步的处理，例如编码转换、数组化、CQ 码增强等，这里的细节目前为止不需要完全明白，在需要的时候，可以去参考 CoolQ HTTP API 插件的文档。</p>
-<p>接着，插件把包装好的事件转换成 JSON 格式，并通过「反向 WebSocket」发送给 NoneBot。这里的「反向 WebSocket」，连接的就是我们在 CoolQ HTTP API 插件的配置中指定的 ws_reverse_url，即 NoneBot 监听的 WebSocket 入口。</p>
-<blockquote>
-<p><strong>提示</strong></p>
-<p>「反向 WebSocket」是 CoolQ HTTP API 插件的一种通信方式，表示插件作为客户端，主动去连接配置文件中指定的 <code>ws_reverse_url</code>。除此之外还有 HTTP、（正向）WebSocket 等方式。</p>
-</blockquote>
-<h3 id="NoneBot-出场"><a href="#NoneBot-出场" class="headerlink" title="NoneBot 出场"></a>NoneBot 出场</h3><p>CoolQ HTTP API 插件通过反向 WebSocket 将消息事件发送到 NoneBot 后，NoneBot 就开始了它的处理流程。</p>
-<h4 id="初步处理"><a href="#初步处理" class="headerlink" title="初步处理"></a>初步处理</h4><p>首先 NoneBot 利用底层的 aiocqhttp 区分事件类型，并通知到相应的函数，本例中，相应的函数就是负责处理消息的函数。</p>
-<p>负责处理消息的函数会尝试把消息作为一个命令来解析，根据默认配置，它发现消息内容 <code>/echo 你好，世界</code> 符合命令的一个特征——以 <code>/</code> 开头，剥离掉这个起始字符之后，消息变为 <code>echo 你好，世界</code>，紧接着，它读取第一个空白字符之前的内容，即 <code>echo</code>，将其理解为命令的名字。</p>
-<blockquote>
-<p><strong>提示</strong></p>
-<p>实际上，它还会使用配置中的分隔符对 <code>echo</code> 做一个分割，不过这里分割完也只有一个部分，所以实际命令名字为 <code>(&#39;echo&#39;,)</code>，形式是一个 Python 元组；而如果我们发送的命令是 <code>note.add</code>，分割之后就是 <code>(&#39;note&#39;, &#39;add&#39;)</code>。</p>
-</blockquote>
-<h4 id="理解最小实例的代码"><a href="#理解最小实例的代码" class="headerlink" title="理解最小实例的代码"></a>理解最小实例的代码</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> nonebot
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    nonebot<span class="token punctuation">.</span>init<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    nonebot<span class="token punctuation">.</span>load_builtin_plugins<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    nonebot<span class="token punctuation">.</span>run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">8080</span><span class="token punctuation">)</span></code></pre>
-<p>第 4 行的 <code>nonebot.init()</code> 首先初始化 <code>nonebot</code> 包，这是无论如何都需要写的一行代码，并且必须在使用 NoneBot 的任何功能之前调用。</p>
-<p>随后，<code>nonebot.load_builtin_plugins()</code> 加载了 NoneBot 的内置插件，这一步不是必须的，尤其在你编写了自己的插件之后，可能会不再需要内置插件。</p>
-<p>NoneBot 的内置插件只包含了两个命令，<code>echo</code> 和 <code>say</code>，两者的功能都是重复发送者的话，区别在于，<code>echo</code> 命令任何人都可以调用（不限制权限），但只能原样重复消息，不能手动指定要发送的 CQ 码，<code>say</code> 命令只有超级用户（通常是你自己，需要在配置中指定）可以调用，可以在消息中指定要发送的 CQ 码。</p>
-<blockquote>
-<p>可以通过在配置中设置<code>SUPERUSERS = {QQid}</code>来获取超级用户权限。</p>
-</blockquote>
-<p>最后，<code>nonebot.run(host=&#39;127.0.0.1&#39;, port=8080)</code> 让 NoneBot 跑在了地址 <code>127.0.0.1:8080</code> 上，向 CoolQ HTTP API 插件提供 <code>/</code>、<code>/ws/</code>、<code>/ws/event/</code>、<code>/ws/api/</code> 四个入口，在我们的反向 WebSocket 配置中，插件利用了第二个入口。</p>
-<h4 id="命令处理器"><a href="#命令处理器" class="headerlink" title="命令处理器"></a>命令处理器</h4><p><code>echo</code> 命令处理器的代码其实非常简单，如下：</p>
-<pre class=" language-python"><code class="language-python">@on_command<span class="token punctuation">(</span><span class="token string">'echo'</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">echo</span><span class="token punctuation">(</span>session<span class="token punctuation">:</span> CommandSession<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">await</span> session<span class="token punctuation">.</span>send<span class="token punctuation">(</span>session<span class="token punctuation">.</span>state<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">)</span> <span class="token operator">or</span> session<span class="token punctuation">.</span>current_arg<span class="token punctuation">)</span></code></pre>
-<p>消息处理函数将剩余部分<code>（你好，世界）</code>当做命令的参数，并通过命令名获取到对应的命令处理器，然后把参数、消息事件中附带的其它信息一起打包成一个 Session 对象（具体来说，是一个 <code>CommandSession</code> 类的对象），传给命令处理器来调用它。</p>
-<h4 id="再次进入-CoolQ-HTTP-API-插件"><a href="#再次进入-CoolQ-HTTP-API-插件" class="headerlink" title="再次进入 CoolQ HTTP API 插件"></a>再次进入 CoolQ HTTP API 插件</h4><p>命令处理器在调用 <code>session.send()</code> 之后，NoneBot 把消息内容发送给了 CoolQ HTTP API 插件那边已连接的反向 WebSocket 客户端，同时告诉它要把消息发送到和收到消息相同的地方（即接收到消息所在的群组、讨论组或私聊）。CoolQ HTTP API 插件明白了 NoneBot 的要求之后，会对消息做一些必要的处理，然后按照指示调用 酷Q 提供的相应接口。</p>
-<h4 id="一切又在-酷Q-结束"><a href="#一切又在-酷Q-结束" class="headerlink" title="一切又在 酷Q 结束"></a>一切又在 酷Q 结束</h4><p>酷Q 收到 CoolQ HTTP API 插件的接口调用之后，将消息内容发送给腾讯的服务器，就像一个真正的 QQ 客户端一样，于是你就收到了 QQ 机器人发来的消息了。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://nonebot.cqp.moe/guide/" target="_blank" rel="noopener">NoneBot 文档</a></li>
-<li><a href="https://cqhttp.cc/docs/4.13/#/" target="_blank" rel="noopener">CoolQ HTTP API 插件文档</a></li>
-<li><a href="https://docs.cqp.im/dev/" target="_blank" rel="noopener">酷Q 开发文档</a></li>
-<li><a href="https://cqp.cc/t/34558" target="_blank" rel="noopener">酷Q on Docker</a></li>
+<li>VPN</li>
+<li><a href="https://2heng.xin/2017/09/19/pixiv/" target="_blank" rel="noopener">Nginx本地代理</a></li>
+<li><a href="https://moe.best/technology/pixiv-proxy.html" target="_blank" rel="noopener">服务器反向代理</a></li>
+<li>通过修改 OkHttp 的 SSLSocket 实现绕过 SNI 审查（即旁路阻断）直连 Pixiv 的功能(强烈安利)<ul>
+<li><a href="/%E7%BB%95%E8%BF%87SNI%E5%AE%A1%E6%9F%A5%E7%9B%B4%E8%BF%9EPixiv/">一个简单Demo讲解</a></li>
+<li><a href="https://github.com/Notsfsssf/Pix-EzViewer/tree/master/app/src/main/java/com/perol/asdpl/pixivez/networks" target="_blank" rel="noopener">Java</a></li>
+<li><a href="https://github.com/upbit/pixivpy/blob/master/example_bypass_sni.py" target="_blank" rel="noopener">Python</a><br>&lt;!–</li>
+<li><a href="https://github.com/Tsuk1ko/pxder/blob/master/src/pixiv-api-client-mod.js" target="_blank" rel="noopener">Node.js</a></li>
 </ul>
+</li>
+</ol>
+<p>–&gt;</p>
+<ol>
+<li>使用非大陆地区的网络</li>
+<li>如果有的话再来补充呗</li>
+</ol>
+<h2 id="Pixiv相关的项目"><a href="#Pixiv相关的项目" class="headerlink" title="Pixiv相关的项目"></a>Pixiv相关的项目</h2><h3 id="PixEz"><a href="#PixEz" class="headerlink" title="PixEz"></a><a href="https://github.com/Notsfsssf/Pix-EzViewer" target="_blank" rel="noopener">PixEz</a></h3><p>一个支持免代理直连及查看动图的第三方 Pixiv Android 客户端，手感不错。</p>
+<h3 id="pixivic"><a href="#pixivic" class="headerlink" title="pixivic"></a><a href="https://github.com/OysterQAQ/Pixiv-Illustration-Collection-Backend" target="_blank" rel="noopener">pixivic</a></h3><p>提供有限的pixiv排行查看与免费高级会员(热门排序)搜索的站点</p>
+<h3 id="pixiv图片代理"><a href="#pixiv图片代理" class="headerlink" title="pixiv图片代理"></a><a href="https://pixiv.cat/" target="_blank" rel="noopener">pixiv图片代理</a></h3><p>pixiv图片伺服器连结的反向代理，只需修改网域部分即可使用，还支持个人网站引用图片。</p>
+<h3 id="Pixiv-DL"><a href="#Pixiv-DL" class="headerlink" title="Pixiv-DL"></a><a href="https://github.com/yjw1268/Pixiv-weekly" target="_blank" rel="noopener">Pixiv-DL</a></h3><p>适合python新手的Pixiv缩略图、原图下载及排行榜JSON格式API生成。</p>
 
             </div>
             <hr/>
@@ -581,12 +520,16 @@ Running on https://127.0.0.1:8080 (CTRL + C to quit)</code></pre><blockquote>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/%E7%BD%91%E7%AB%99/">
+                                    <span class="chip bg-color">网站</span>
                                 </a>
                             
                                 <a href="/tags/%E6%8A%80%E6%9C%AF/">
                                     <span class="chip bg-color">技术</span>
+                                </a>
+                            
+                                <a href="/tags/Nginx/">
+                                    <span class="chip bg-color">Nginx</span>
                                 </a>
                             
                         </div>
@@ -598,7 +541,7 @@ Running on https://127.0.0.1:8080 (CTRL + C to quit)</code></pre><blockquote>
 <div id="article-share">
     
     
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
     
 
@@ -757,7 +700,7 @@ Running on https://127.0.0.1:8080 (CTRL + C to quit)</code></pre><blockquote>
         repo: 'Web-learning',
         owner: 'yjw1268',
         admin: "yjw1268",
-        id: '2020-01-31T21-34-33',
+        id: '2020-01-30T21-10-39',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -778,66 +721,11 @@ Running on https://127.0.0.1:8080 (CTRL + C to quit)</code></pre><blockquote>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2020/01/31/%E9%85%B7Q%E6%9C%BA%E5%99%A8%E4%BA%BA%E9%83%A8%E7%BD%B2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/21.jpg" class="responsive-img" alt="酷Q机器人Windows部署">
-                        
-                        <span class="card-title">酷Q机器人Windows部署</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            QQ机器人部署过程记录
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Software/" class="post-category">
-                                    Software
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
-                        <span class="chip bg-color">技术</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/31/%E7%BB%95%E8%BF%87SNI%E5%AE%A1%E6%9F%A5%E7%9B%B4%E8%BF%9EPixiv/">
+                <a href="/2020/01/31/rao-guo-sni-shen-cha-zhi-lian-pixiv/">
                     <div class="card-image">
                         
                         
@@ -853,9 +741,9 @@ Running on https://127.0.0.1:8080 (CTRL + C to quit)</code></pre><blockquote>
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -877,6 +765,59 @@ Running on https://127.0.0.1:8080 (CTRL + C to quit)</code></pre><blockquote>
                     
                     <a href="/tags/%E6%8A%80%E6%9C%AF/">
                         <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/29/fiddler-shou-ji-zhua-bao-shi-yong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/8.jpg" class="responsive-img" alt="Fiddler手机抓包使用">
+                        
+                        <span class="card-title">Fiddler手机抓包使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            学习使用Fiddler软件手机抓包的坑与笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Software/" class="post-category">
+                                    Software
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%88%AC%E8%99%AB/">
+                        <span class="chip bg-color">爬虫</span>
                     </a>
                     
                 </div>
@@ -1207,7 +1148,16 @@ $(function () {
     
 
     
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
 
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon.min.js" async="async"></script>
     
 
     
