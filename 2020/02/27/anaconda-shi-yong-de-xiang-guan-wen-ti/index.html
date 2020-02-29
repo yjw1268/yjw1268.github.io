@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Blog">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="Anaconda使用的相关问题, Blog">
+    <meta name="description" content="Anaconda环境配置及报错的一些解决办法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | Hi,YJW</title>
+    <title>Anaconda使用的相关问题 | Hi,YJW</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
@@ -303,12 +303,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Anaconda使用的相关问题</h1>
                 </div>
             </div>
         </div>
@@ -423,12 +423,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Software/" class="post-category">
+                                Software
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -437,7 +450,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-21
+                    2020-02-27
                 </div>
                 
 
@@ -454,15 +467,28 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><h2 id="Q1"><a href="#Q1" class="headerlink" title="Q1"></a>Q1</h2><blockquote>
+<p>问题描述：在用 Anaconda 安装包时遇到无法定位程序输入点于……动态链接库的问题</p>
+</blockquote>
+<p>解决方法：</p>
+<ol>
+<li>找到 Anaconda 安装路径：</li>
+<li>进入 <code>\DLLs</code> 文件夹，查看 <code>libcrypto-1_1-x64.dll</code> 文件的修改日期</li>
+<li>进入 <code>\Library\bin</code> 文件夹，查看 <code>libcrypto-1_1-x64.dll</code> 文件修改日期</li>
+<li>如果两文件修改日期不同，用 DLLS文件夹下的 <code>libcrypto-1_1-x64.dll</code> 替换 bin文件夹下的 <code>libcrypto-1_1-x64.dll</code></li>
+<li>重新尝试安装</li>
+</ol>
+<p>效果：<br>替换文件之后确实可以解决“无法定位程序输入点”的问题，但再安装其他package时，会再次出现相同的问题，再次查看文件修改日期，发现两个文件夹下 libcrypto-1_1-x64.dll 的日期又不一致了，需要重新替换</p>
+<p>*有时也需更换<code>libssl-1_1-x64.dll</code>文件。</p>
+<h2 id="Q2"><a href="#Q2" class="headerlink" title="Q2"></a>Q2</h2><blockquote>
+<p>Jupyter Notebook出现kernel error FileNotFoundError: [WinError 2] 系统找不到指定的文件</p>
+</blockquote>
+<p>解决办法：</p>
+<ol>
+<li>在cmd 使用jupyter kernelspec list查看安装的内核和位置</li>
+<li>进入安装内核目录打开kernel.jason文件，查看Python编译器的路径是否正确</li>
+<li>修改编译器至正确的Anaconda环境的python编译器路径</li>
+</ol>
 
             </div>
             <hr/>
@@ -475,7 +501,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -644,7 +674,7 @@
         repo: 'Web-learning',
         owner: 'yjw1268',
         admin: "yjw1268",
-        id: '2020-01-21T20-14-32',
+        id: '2020-02-27T21-18-52',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -669,31 +699,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/23/sai2-de-an-zhuang-yu-chu-shi-hua/">
+                <a href="/2020/02/29/phm-ke-cheng-xue-xi-1/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/11.jpg" class="responsive-img" alt="SAI2的安装与初始化">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/20.jpg" class="responsive-img" alt="PHM课程学习一">
                         
-                        <span class="card-title">SAI2的安装与初始化</span>
+                        <span class="card-title">PHM课程学习一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SAI2 2020-01-19 进度报告版安装&备忘
+                            风机结冰预测实验
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Software/" class="post-category">
-                                    Software
+                            <a href="/categories/Code/" class="post-category">
+                                    Code
                                 </a>
                             
                             
@@ -703,12 +733,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AF%E4%BB%B6/">
-                        <span class="chip bg-color">软件</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BB%98%E7%94%BB/">
-                        <span class="chip bg-color">绘画</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -719,37 +745,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/21/hello-world/">
+                <a href="/2020/02/02/python-multiprocessing-zai-windows-bian-yi-qi-xia-de-wen-ti/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/21.jpg" class="responsive-img" alt="multiprocessing在Windows环境编译器下的问题">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">multiprocessing在Windows环境编译器下的问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            在Windows环境的编译器中，multiprocessing模块Pool卡死的问题。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Ryan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Code/" class="post-category">
+                                    Code
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
