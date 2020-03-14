@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="PHM课程学习一, Blog">
-    <meta name="description" content="风机结冰预测实验">
+    <meta name="keywords" content="PHM课程学习-转子脱落故障预, Blog">
+    <meta name="description" content="转子部件脱落故障预测实验">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>PHM课程学习一 | Hi,YJW</title>
+    <title>PHM课程学习-转子脱落故障预 | Hi,YJW</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
@@ -308,7 +308,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PHM课程学习一</h1>
+                    <h1 class="description center-align post-title">PHM课程学习-转子脱落故障预</h1>
                 </div>
             </div>
         </div>
@@ -450,7 +450,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-29
+                    2020-03-14
                 </div>
                 
 
@@ -467,54 +467,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>通过对传感器采集的风机原始数据进行预处理、特征处理、选择机器学习算法等过程后，通过训练集训练，测试集进行评估的方式，构建风机结冰预测模型，并对构建的模型进行评估，得到最终的准确率、精确率、召回率、F-Measure、ROC-Area等评估参数。</p>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://www.phmlearn.com/u/zangml/blogs/35" target="_blank" rel="noopener">原址</a></p>
-<h2 id="可能用得上的知识"><a href="#可能用得上的知识" class="headerlink" title="可能用得上的知识"></a>可能用得上的知识</h2><h3 id="One-Class-SVM"><a href="#One-Class-SVM" class="headerlink" title="One Class SVM"></a>One Class SVM</h3><p>One Class Learning 比较经典的算法是One-Class-SVM，这个算法的思路非常简单，就是寻找一个超平面将样本中的正例圈出来，预测就是用这个超平面做决策，在圈内的样本就认为是正样本。由于核函数计算比较耗时，在海量数据的场景用的并不多。</p>
-<p>另一个算法是基于神经网络的算法，在深度学习中广泛使用的自编码算法可以应用在单分类的问题上，自编码是一个BP神经网络，网络输入层和输出层是一样，中间层数可以有多层，中间层的节点个数比输出层少，最简单的情况就是中间只有一个隐藏层，如下图所示，由于中间层的节点数较少，这样中间层相当于是对数据进行了压缩和抽象，实现无监督的方式学习数据的抽象特征。</p>
-<p>如果我们只有正样本数据，没有负样本数据，或者说只关注学习正样本的规律，那么利用正样本训练一个自编码器，编码器就相当于单分类的模型，对全量数据进行预测时，通过比较输入层和输出层的相似度就可以判断记录是否属于正样本。</p>
-<p>sklearn提供了一些机器学习方法，可用于奇异（Novelty）点或者异常（Outlier）点检测，包括OneClassSVM，Isolation Forest，Local Outlier Factor（LOF）等，其中OneCLassSVM可以用于Novelty Dection，而后两者可用于Outlier Detection。</p>
-<p>严格来说，OneCLassSVM不是一种outlier detection，而是一种novelty detection方法：它的训练集不应该掺杂异常点，因为模型可能会去匹配这些异常点。但在数据维度很高，或者对相关数据分布没有任何假设的情况下，OneClassSVM也可以作为一种很好的outlier detection方法。</p>
-<p>在one-class classification中，仅仅只有一类的信息是可以用于训练，其他类别的（总称outlier）信息是缺失的，也就是区分两个类别的边界线是通过仅有的一类数据的信息学习得到的。</p>
-<blockquote>
-<p>novelty detection<br>当训练数据中没有离群点，我们的目标是用训练好的模型去检测另外发现的新样本</p>
-</blockquote>
-<blockquote>
-<p>outlier  dection<br>当训练数据中包含离群点，模型训练时要匹配训练数据的中心样本，忽视训练样本中的其他异常点。</p>
-</blockquote>
-<h3 id="OneClass-与二分类，多分类的区别"><a href="#OneClass-与二分类，多分类的区别" class="headerlink" title="OneClass 与二分类，多分类的区别"></a>OneClass 与二分类，多分类的区别</h3><p>如果将分类算法进行划分，根据类别个数的不同可以分为单分类，二分类，多分类。常见的分类算法主要解决二分类和多分类问题，预测一封邮件是否是垃圾邮件是一个典型的二分类问题，手写体识别是一个典型的多分类问题，这些算法并不能很好的应用在单分类上，但是单分类问题在工业界广泛存在，由于每个企业刻画用户的数据都是有限的，很多二分类问题很难找到负样本，即使用一些排除法筛选出负样本，负样本也会不纯，不能保证负样本中没有正样本。所以在只能定义正样本不能定义负样本的场景中，使用单分类算法更合适。</p>
-<ul>
-<li><p>单分类算法只关注与样本的相似或者匹配程度，对于未知的部分不妄下结论。</p>
-</li>
-<li><p>典型的二类问题：识别邮件是否是垃圾邮件，一类“是”，一类“不是”。</p>
-</li>
-<li><p>典型的多类问题：人脸识别，每个人对应的脸就是一个类，然后把待识别的脸分到对应的类去。</p>
-</li>
-</ul>
-<p>而OneClassClassification，它只有一个类，属于该类就返回结果“是”，不属于就返回结果“不是”。</p>
-<p>其区别就是在二分类问题中，训练集中就由两个类的样本组成，训练出的模型是一个二分类模型；而OneClassClassification中的训练样本只有一类，因此训练出的分类器将不属于该类的所有其他样本判别为“不是”即可，而不是由于属于另一类才返回“不是”的结果。</p>
-<p>现实场景中的OneCLassClassification例子：现在有一堆某商品的历史销售数据，记录着买该产品的用户信息，此外还有一些没有购买过该产品的用户信息，想通过二分类来预测他们是否会买该产品，也就是两个类，一类是“买”，一类是“不买”。当我们要开始训练二分类器的时候问题来了，一般来说没买的用户数会远远大于已经买了的用户数，当将数据不均衡的正负样本投入训练时，训练出的分类器会有较大的bisa（偏向值）。因此，这时候就可以使用OneClassClassification 方法来解决，即训练集中只有已经买过该产品的用户数据，在识别一个新用户是否会买该产品时，识别结果就是“会”或者“不会”。</p>
-<h3 id="sklearn实现"><a href="#sklearn实现" class="headerlink" title="sklearn实现"></a>sklearn实现</h3><p><strong>参数</strong></p>
-<ul>
-<li>kernel：核函数（一般使用高斯核）</li>
-<li>nu：设定训练误差(0, 1]，表示异常点比例，默认值为0.5</li>
-</ul>
-<p><strong>方法</strong></p>
-<ul>
-<li><p>fit(X)：训练，根据训练样本和上面两个参数探测边界。（注意是无监督）</p>
-</li>
-<li><p>predict(X)：返回预测值，+1就是正常样本，-1就是异常样本。</p>
-</li>
-<li><p>decision_function(X)：返回各样本点到超平面的函数距离（signed distance），正的维正常样本，负的为异常样本。</p>
-</li>
-<li><p>set_params(**params)：设置这个评估器的参数，该方法适用于简单估计器以及嵌套对象（例如管道）。</p>
-</li>
-<li><p>get_params([deep])：获取这个评估器的参数。</p>
-</li>
-<li><p>fit_predict(X[, y])：在X上执行拟合并返回X的标签，对于异常值，返回 -1 ，对于内点，返回1。</p>
-</li>
-</ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><center><iframe src="https://nbviewer.jupyter.org/url/www.bupt404.cn/doc/phm1.ipynb" width="700" height="600"></iframe></center>
-
+                <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><center><iframe src="https://nbviewer.jupyter.org/github/yjw1268/Web-learning/blob/Try/jupyter%20notebook/PHM-2.ipynb" width="100%" height="600"></iframe></center>
             </div>
             <hr/>
 
@@ -699,7 +652,7 @@
         repo: 'Web-learning',
         owner: 'yjw1268',
         admin: "yjw1268",
-        id: '2020-02-29T18-34-48',
+        id: '2020-03-14T21-04-41',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -725,24 +678,24 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/02/29/phm-ke-cheng-xue-xi-1/">
+                <a href="/2020/03/14/phm-ke-cheng-xue-xi-zhuan-zi-tuo-luo-gu-zhang-yu/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/20.jpg" class="responsive-img" alt="PHM课程学习一">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/20.jpg" class="responsive-img" alt="PHM课程学习-转子脱落故障预">
                         
-                        <span class="card-title">PHM课程学习一</span>
+                        <span class="card-title">PHM课程学习-转子脱落故障预</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            风机结冰预测实验
+                            转子部件脱落故障预测实验
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-14
                             </span>
                         <span class="publish-author">
                             
@@ -775,31 +728,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/27/anaconda-shi-yong-de-xiang-guan-wen-ti/">
+                <a href="/2020/02/29/phm-ke-cheng-xue-xi-feng-ji-sun-pi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/3.jpg" class="responsive-img" alt="Anaconda使用的相关问题">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/20.jpg" class="responsive-img" alt="PHM课程学习一">
                         
-                        <span class="card-title">Anaconda使用的相关问题</span>
+                        <span class="card-title">PHM课程学习一</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Anaconda环境配置及报错的一些解决办法
+                            风机结冰预测实验
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Software/" class="post-category">
-                                    Software
+                            <a href="/categories/Code/" class="post-category">
+                                    Code
                                 </a>
                             
                             
@@ -809,8 +762,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
