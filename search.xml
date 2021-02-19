@@ -8,7 +8,7 @@
       <link href="/2021/02/19/websdr/"/>
       <url>/2021/02/19/websdr/</url>
       
-        <content type="html"><![CDATA[<h2 id="我们为什么开发WEBSDR"><a href="#我们为什么开发WEBSDR" class="headerlink" title="我们为什么开发WEBSDR"></a>我们为什么开发WEBSDR</h2><p>2020年是不平凡的一年，突如其来的疫情换来了不一样的教学方式,也引发了对在线教学模式的组织与探索。线上教学上通信系统建模与仿真这门课时候，由于学生在家没有实验设备，老师远程向我们视频展示了通过<code>SDR(Software Defined Radio)</code>收听当地信号并显示频谱等功能，以此为契机我们突发想法：能否将将SDR接入互联网，让大家无论在何处都可以查看与收听信号呢？于是就有了这个项目的雏形。</p><h2 id="这个网站能做什么"><a href="#这个网站能做什么" class="headerlink" title="这个网站能做什么"></a>这个网站能做什么</h2><p>网站是开发者兴趣所向学习之余开发，所有的工作都是开发者课余阅读文档自己写的代码，没有开源软件与代码借鉴。目前网站已经实现了实时捕获信号、实时显示频谱并解调播放的功能。受于目前的服务器与硬件的限制，目前只能解调FM信号并且服务器会有一定的缓存与延迟。</p><h2 id="未来的计划"><a href="#未来的计划" class="headerlink" title="未来的计划"></a>未来的计划</h2><p>在之后的一段时间内，我们将致力于改进服务器与硬件的性能与机制。支持更多的电台需要更大频段范围的硬件设备与软件的接续开发，以后年级的同学如果感兴趣也可以继续滚动开发完成。</p><p><a href="http://sdr.bupt404.cn/" target="_blank" rel="noopener">WEBSDR网站</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="我们为什么开发WEBSDR"><a href="#我们为什么开发WEBSDR" class="headerlink" title="我们为什么开发WEBSDR"></a>我们为什么开发WEBSDR</h2><p>2020年是不平凡的一年，突如其来的疫情换来了不一样的教学方式,也引发了对在线教学模式的组织与探索。线上教学上通信系统建模与仿真这门课时候，由于学生在家没有实验设备，老师远程向我们视频展示了通过<code>SDR(Software Defined Radio)</code>收听当地信号并显示频谱等功能，以此为契机我们突发想法：能否将将SDR接入互联网，让大家无论在何处都可以查看与收听信号呢？于是就有了这个项目的雏形。</p><h2 id="这个网站能做什么"><a href="#这个网站能做什么" class="headerlink" title="这个网站能做什么"></a>这个网站能做什么</h2><p>网站是开发者兴趣所向学习之余开发，所有的工作都是开发者课余阅读文档自己写的代码，没有开源软件与代码借鉴。目前网站已经实现了实时捕获信号、实时显示频谱并解调播放的功能。受于目前的服务器与硬件的限制，目前只能解调FM信号并且服务器会有一定的缓存与延迟。</p><h2 id="未来的计划"><a href="#未来的计划" class="headerlink" title="未来的计划"></a>未来的计划</h2><p>在之后的一段时间内，我们将致力于改进服务器与硬件的性能与机制。支持更多的电台需要更大频段范围的硬件设备与软件的接续开发，以后年级的同学如果感兴趣也可以继续滚动开发完成。</p><h3 id="WEBSDR网站"><a href="#WEBSDR网站" class="headerlink" title="WEBSDR网站"></a><a href="http://sdr.bupt404.cn/" target="_blank" rel="noopener">WEBSDR网站</a></h3>]]></content>
       
       
       <categories>
@@ -255,9 +255,9 @@
       
         <tags>
             
-            <tag> 网站 </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> 网站 </tag>
             
         </tags>
       
