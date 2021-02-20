@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>WEBSDR指南</title>
+      <link href="/2021/02/20/sdrguide/"/>
+      <url>/2021/02/20/sdrguide/</url>
+      
+        <content type="html"><![CDATA[<h1 id="WEBSDR"><a href="#WEBSDR" class="headerlink" title="WEBSDR"></a>WEBSDR</h1><p>WEBSDR将本地收听的电台信号共享到互联网上，让您可以随时随地选择频率收听FM电台。网站也附带了实时接收的频谱与瀑布图，是学习通信、信号处理的优秀平台。</p><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><p>我们目前使用<code>820T2+RTL2832U</code>USB软件无线电，它支持<code>DVB-T+FM+DAB</code>，最大采样率为3.3MHZ。</p><h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><p>软件代码部分使用<code>Python</code>进行IQ数据处理与解调，计划使用<code>WebSocket</code>传输实时数据到服务器上，通过<code>Canvas</code>渲染数据，调用<code>Web Audio API</code>等实时播放音频。</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>目前网站是一个实现形式的Demo，还在不断完善中，发现bug欢迎在下方留言。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SDR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>支持websdr</title>
+      <link href="/2021/02/20/supportwebsdr/"/>
+      <url>/2021/02/20/supportwebsdr/</url>
+      
+        <content type="html"><![CDATA[<h1 id="帮助WEBSDR开发"><a href="#帮助WEBSDR开发" class="headerlink" title="帮助WEBSDR开发"></a>帮助WEBSDR开发</h1><p>WEBSDR是一个正在开发中的项目，目前出于一些限制还有很多开源完善的空间。我们也计划在项目稳定后开放为MIT许可的开源项目，完全免费使用。但是，如果没有适当的资金支持，维护和开发项目新功能所需的工作量将无法持续。</p><h2 id="途径"><a href="#途径" class="headerlink" title="途径"></a>途径</h2><p>您可以通过以下方法支持WEBSDR开发：</p><ol><li>如果您对项目感兴趣，想加入和改进本项目，可以在本页面下方留下联系方式，开发者将会联系您。</li><li>如果您喜欢本项目，可以通过以下渠道捐赠以用于服务器与硬件资费: <ul><li>微信  </li><li>支付宝  </li></ul></li></ol><p>点击文末的<code>赏</code>即可捐赠。</p><h2 id="WEBSDR贡献者"><a href="#WEBSDR贡献者" class="headerlink" title="WEBSDR贡献者"></a>WEBSDR贡献者</h2><p>这个项目的存在要感谢所有贡献者。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SDR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WEBSER简介</title>
       <link href="/2021/02/19/websdr/"/>
       <url>/2021/02/19/websdr/</url>
