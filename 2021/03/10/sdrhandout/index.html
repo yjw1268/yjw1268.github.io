@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo框架使用笔记, Blog">
-    <meta name="description" content="Hexo框架相关的使用技巧~">
+    <meta name="keywords" content="通信系统建模与仿真——软件无线电基础, Blog">
+    <meta name="description" content="软件无线电基础软件无线电的核心理念构造一个具有开放性、标准化、模块化的通用硬件平台，将各种功能，如工作频段、调制解调类型、数据格式、加密模式、通信协议等用软件来完成，并使A/D和D/A转换器尽可能靠近天线，以研制出具有高度灵活性、开放性的新">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo框架使用笔记 | WEBSDR</title>
+    <title>通信系统建模与仿真——软件无线电基础 | WEBSDR</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
@@ -303,12 +303,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo框架使用笔记</h1>
+                    <h1 class="description center-align post-title">通信系统建模与仿真——软件无线电基础</h1>
                 </div>
             </div>
         </div>
@@ -425,12 +425,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BD%91%E7%AB%99/">
-                                <span class="chip bg-color">网站</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">笔记</span>
+                            <a href="/tags/SDR/">
+                                <span class="chip bg-color">SDR</span>
                             </a>
                         
                     </div>
@@ -441,8 +437,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Web/" class="post-category">
-                                Web
+                            <a href="/categories/Code/" class="post-category">
+                                Code
                             </a>
                         
                     </div>
@@ -454,7 +450,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-27
+                    2021-03-10
                 </div>
                 
 
@@ -471,34 +467,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Hexo是一个快速、简洁且高效的博客框架。只需要在Node.js上一句语句即可完场部署。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</p>
-<ul>
-<li>Node.js (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)  </li>
-<li>Git</li>
+                <h1 id="软件无线电基础"><a href="#软件无线电基础" class="headerlink" title="软件无线电基础"></a>软件无线电基础</h1><h2 id="软件无线电的核心理念"><a href="#软件无线电的核心理念" class="headerlink" title="软件无线电的核心理念"></a>软件无线电的核心理念</h2><p>构造一个具有开放性、标准化、模块化的通用硬件平台，将各种功能，如工作频段、调制解调类型、数据格式、加密模式、通信协议等用软件来完成，并使A/D和D/A转换器尽可能靠近天线，以研制出具有高度灵活性、开放性的新一代无线通信系统。</p>
+<h2 id="软件无线电的核心技术"><a href="#软件无线电的核心技术" class="headerlink" title="软件无线电的核心技术"></a>软件无线电的核心技术</h2><ul>
+<li>技术数字化             – ADC及DAC的广泛应用</li>
+<li>平台通用化             – 高速ADC/DAC + DSP + FPGA</li>
+<li>功能虚拟化             – 软件定义</li>
+<li>结构总线化＋模块化    – 定义标准化结构及接口</li>
+<li>控制网络化 </li>
+<li>体系标准化</li>
 </ul>
-<p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g</code></pre>
-<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<pre class=" language-bash"><code class="language-bash">$ hexo init <span class="token operator">&lt;</span>folder<span class="token operator">></span>
-$ <span class="token function">cd</span> <span class="token operator">&lt;</span>folder<span class="token operator">></span>
-$ <span class="token function">npm</span> <span class="token function">install</span></code></pre>
-<p>新建完成后，指定文件夹的目录如下：</p>
-<pre><code>.
-├── _config.yml
-├── package.json
-├── scaffolds
-├── source
-|   ├── _drafts
-|   └── _posts
-└── themes
-</code></pre>
-<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>网站的配置信息，您可以在此配置大部分的参数。</p>
-<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>应用程序的信息。其中EJS, Stylus 和 Markdown renderer 已默认安装。</p>
-<h3 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h3><p>模版文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
-<p>Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
-<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-<h3 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h3><p>主题文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h2 id="软件无线电的定义"><a href="#软件无线电的定义" class="headerlink" title="软件无线电的定义"></a>软件无线电的定义</h2><p>软件定义无线电 (SDR) 的定义：其数字化是在天线端（或者非常接近）进行，无线电所需要的所有处理通过驻留在高速数字信号处理单元中的软件来实现－－理想的软件无线电</p>
+<h2 id="软件无线电的特征"><a href="#软件无线电的特征" class="headerlink" title="软件无线电的特征"></a>软件无线电的特征</h2><ul>
+<li>数字化是在天线端（或者非常接近）进行</li>
+<li>大动态范围</li>
+<li>多波段</li>
+<li>多模式</li>
+<li>软件不仅定义处理功能，也定义结构、模式和波段</li>
+</ul>
+<h2 id="软件无线电的系统描述"><a href="#软件无线电的系统描述" class="headerlink" title="软件无线电的系统描述"></a>软件无线电的系统描述</h2><p><img src="https://i.loli.net/2021/03/01/7VLdsTYIeq4E8va.png" alt=""></p>
 
             </div>
             <hr/>
@@ -512,12 +498,8 @@ $ <span class="token function">npm</span> <span class="token function">install</
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BD%91%E7%AB%99/">
-                                    <span class="chip bg-color">网站</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">笔记</span>
+                                <a href="/tags/SDR/">
+                                    <span class="chip bg-color">SDR</span>
                                 </a>
                             
                         </div>
@@ -688,7 +670,7 @@ $ <span class="token function">npm</span> <span class="token function">install</
         repo: 'Web-learning',
         owner: 'yjw1268',
         admin: "yjw1268",
-        id: '2020-01-27T11-13-37',
+        id: '2021-03-10T14-56-27',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -713,31 +695,41 @@ $ <span class="token function">npm</span> <span class="token function">install</
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/29/fiddler-shou-ji-zhua-bao-shi-yong/">
+                <a href="/2021/03/11/spectrumhandout/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/8.jpg" class="responsive-img" alt="Fiddler手机抓包使用">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/8.jpg" class="responsive-img" alt="通信系统建模与仿真——频谱测量">
                         
-                        <span class="card-title">Fiddler手机抓包使用</span>
+                        <span class="card-title">通信系统建模与仿真——频谱测量</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习使用Fiddler软件手机抓包的坑与笔记
+                            频谱测量信号的时域观测：幅度 vs 时间简单例子: 正弦波
+纵轴为幅度
+横轴为时间
+频率为周期的倒数   (F = 1/T)
+
+
+信号的频域观测：幅度 vs 频率简单例子: 正弦波
+纵轴为RMS幅度
+横轴为频率
+
+频谱分析仪实际上为指定频率
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-11
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Software/" class="post-category">
-                                    Software
+                            <a href="/categories/Code/" class="post-category">
+                                    Code
                                 </a>
                             
                             
@@ -747,12 +739,8 @@ $ <span class="token function">npm</span> <span class="token function">install</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/SDR/">
+                        <span class="chip bg-color">SDR</span>
                     </a>
                     
                 </div>
@@ -766,31 +754,31 @@ $ <span class="token function">npm</span> <span class="token function">install</
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/27/jsdelivr-shi-yong-wen-dang/">
+                <a href="/2021/03/09/items/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/0.jpg" class="responsive-img" alt="jsDelivr使用文档">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/2.jpg" class="responsive-img" alt="法律法规中的无线电频谱">
                         
-                        <span class="card-title">jsDelivr使用文档</span>
+                        <span class="card-title">法律法规中的无线电频谱</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            jsDelivr – Open Source CDN, free, fast, and reliable
+                            无线电频谱是一个有限、不可再生的自然资源,也是国家宝贵的战略资源。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
+                            <a href="/categories/Code/" class="post-category">
+                                    Code
                                 </a>
                             
                             
@@ -800,8 +788,8 @@ $ <span class="token function">npm</span> <span class="token function">install</
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%AB%99/">
-                        <span class="chip bg-color">网站</span>
+                    <a href="/tags/SDR/">
+                        <span class="chip bg-color">SDR</span>
                     </a>
                     
                 </div>
