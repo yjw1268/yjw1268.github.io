@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="一种高效而简单的FM解调方法, Blog">
     <meta name="description" content="一种高效而简单的FM解调方法
-本文由基于LaTex的mathjax数学公式显示支持，加载可能需要一定时间。
+本文由基于LaTex的MathJax数学公式显示支持，加载可能需要一定时间。
 
 测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。
 
@@ -323,105 +323,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #4d88d6;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #4d88d6;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #4d88d6;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -473,7 +378,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="一种高效而简单的FM解调方法"><a href="#一种高效而简单的FM解调方法" class="headerlink" title="一种高效而简单的FM解调方法"></a>一种高效而简单的FM解调方法</h1><blockquote>
-<p>本文由基于<code>LaTex</code>的<code>mathjax</code>数学公式显示支持，加载可能需要一定时间。</p>
+<p>本文由基于<code>LaTex</code>的<code>MathJax</code>数学公式显示支持，加载可能需要一定时间。</p>
 </blockquote>
 <p>测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。</p>
 <p><img src="https://i.loli.net/2021/04/08/DVNMlXox6w7YOL4.jpg" alt="使用反正切函数的频率解调器.jpg"></p>
@@ -517,8 +422,13 @@
 <p>$$∆θ(t)=\frac{1}{1+[\frac{q(t)}{i(t)}]^2}\frac{i(t)\frac{d[q(t)]}{dt}-q(t)\frac{d[i(t)]}{dt}}{i^2(t)}$$</p>
 <p>接下来，我们将等式中第一个分数的分母展开与第二个分数分母相乘,然后将t替换为我们的离散时间变量n，化简得出最终结果为:</p>
 <p>$$∆θ(n)=\frac{i(n)\frac{d[q(n)]}{dn}-q(n)\frac{d[i(n)]}{dn}}{i^2(n)+q^2(n)}$$</p>
-<p>微分器是抽头延迟线FIR微分滤波器，具有奇数个抽头。当微分器是系数为1,0，–1的FIR滤波器时，得到了有效的结果。</p>
-<p>如果$i(n)+ jq(n)$信号纯粹是FM信号且受严格限制，使得$i^2(n)+q^2(n)=Const$（在硬件RTL中为常数1），则等式中的分母计算无需执行。在这种情况下，使用1,0，–1系数微分器，将FM解调器简化方法即可，其中比例运算直接与常数的倒数相乘。</p>
+<p><img src="https://i.loli.net/2021/04/08/hPMOAedY7NBKXjG.jpg" alt="a.传统解调流程.jpg"></p>
+<p><img src="https://i.loli.net/2021/04/08/CfTtRZnaw89JorX.jpg" alt="b.改进后简化流程.jpg"></p>
+<p>微分器是抽头延迟线FIR微分滤波器，具有奇数个抽头。当微分器是系数为1,0,–1的FIR滤波器时，得到了有效的结果。</p>
+<p>如果$i(n)+ jq(n)$信号纯粹是FM信号且受严格限制，使得$i^2(n)+q^2(n)=Const$（在硬件RTL中为常数1），则等式中的分母计算无需执行。在这种情况下，使用1,0,–1系数微分器，将FM解调器简化为图bz中的方法即可，其中比例运算直接与常数的倒数相乘。</p>
+<blockquote>
+<p>参考文献: Richard G. Lyons, Understanding Digital Signal Processing[M], April 2004.</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -851,100 +761,6 @@
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
 
     
 
