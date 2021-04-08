@@ -4,9 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="WEBSDR指南, Blog">
-    <meta name="description" content="WEBSDRWEBSDR将本地收听的电台信号共享到互联网上，让您可以随时随地选择频率收听FM电台，而不用购买任何专业硬件设备。网站也附带了实时接收的频谱与瀑布图，是学习通信、信号处理的优秀平台。
-概览硬件我们目前使用820T2+RTL283">
+    <meta name="keywords" content="一种高效而简单的FM解调方法, Blog">
+    <meta name="description" content="一种高效而简单的FM解调方法测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。
+
+这是传统的离散信号FM解调方法，效果很好。解调器的瞬时输出频率为:
+
+
+$f(n)=\frac{f_s[\tri">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>WEBSDR指南 | WEBSDR</title>
+    <title>一种高效而简单的FM解调方法 | WEBSDR</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
@@ -304,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">WEBSDR指南</h1>
+                    <h1 class="description center-align post-title">一种高效而简单的FM解调方法</h1>
                 </div>
             </div>
         </div>
@@ -451,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-02-16
                 </div>
                 
 
@@ -468,46 +472,39 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="WEBSDR"><a href="#WEBSDR" class="headerlink" title="WEBSDR"></a>WEBSDR</h1><p>WEBSDR将本地收听的电台信号共享到互联网上，让您可以随时随地选择频率收听FM电台，而不用购买任何专业硬件设备。网站也附带了实时接收的频谱与瀑布图，是学习通信、信号处理的优秀平台。</p>
-<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><h3 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h3><p>我们目前使用<code>820T2+RTL2832U</code>USB软件无线电，它支持<code>DVB-T+FM+DAB</code>，最大采样率为3.3MHZ。</p>
-<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>软件代码部分使用<code>Python</code>进行IQ数据处理与解调，计划使用<code>WebSocket</code>传输实时数据到服务器上，通过<code>Canvas</code>渲染数据，调用<code>Web Audio API</code>等实时播放音频。</p>
-<h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><p>下图是一个简要的程序实现流程。</p>
-<p><img src="https://i.loli.net/2021/04/08/2iMr9WZYopynkXO.jpg" alt="流程.jpg"></p>
-<p>首先，我们通过<code>820T2+RTL2832U</code>USB软件无线电设备在一个信号良好的地方（比如建筑物高层外围）收集附近的无线电信号，得到IQ数据。这里我们使用<code>RTL-SDR</code>项目支持的设备的简单<code>Python</code>接口<code>pyrtlsdr</code>,一个依赖<code>C</code>语言的<code>librtlsdr</code>的<code>Python</code>包装器（基于<code>Realtek RTL2832U</code>的SDR的驱动程序）来驱动设备并获得IQ数据。</p>
-<p>获取IQ数据后，接下来进行数字信号处理（DSP）。</p>
-<ol>
-<li>首先使用非常适合于进行交互式绘图的<code>matplotlib</code>子包<code>pylab</code>的<code>psd</code>函数（Power Spectral Density Estimates Using FFT）计算功率谱密度，得到信号的频谱。目前我们以91.2MHz为中心频率及2.8MHz的采样率进行采样，从网站渲染的频谱图可以看见，平时能收听到所在地（北京）3~4个无线电台，具有典型性。</li>
-<li>接着，使用Python中最经典的开源的数学、科学和工程计算包<code>scipy</code>分析信号。对于每次的采样数据，应用抗混叠滤波器（这里使用了带汉明窗的30点FIR滤波器）后，对信号进行下采样；对于信号解调，有很多对FM信号进行解调的方法，我们选取了<a href="">一种高效而简单的FM解调方法</a>。信号在时域中的微分等效于信号的傅里叶变换乘以虚斜坡函数。也就是说，要对信号求导，请将其传递给具有响应 H(ω)=jω 的滤波器。使用<code>firls</code>和<code>differentiator</code>选项获得逼近理想的微分器,为节约运行时间，代码部分已经直接以数组形式呈现。</li>
-<li>最后将IQ信号实部和虚部分别卷积处理后，再次下采样输出为音频信号，保存为流媒体格式。该部分核心核心代码如下：</li>
-</ol>
-<pre class=" language-Python"><code class="language-Python">for data in datas:
-    a = -2j*np.pi*(CFFREQ-RFFREQ)*(np.arange(1, len(data)+1)/RFRATE)
-    x = np.exp(a)
-    x = np.transpose(x)
-    data = data * x
-    data = signal.decimate(data, DOWN_FACTOR, ftype="fir")
-    # design differentiate
-    # b = signal.firls(30,[0 .9],[0 1],'differentiator'); 
-    b = [0.0005, -0.0017, 0.0032, -0.0052, 0.0079, -0.0115, 0.0162, -0.0223, 0.0302, -0.0406, 0.0548, -0.0752, 0.1077, -0.1699, 0.3502,
-          0, -0.3502, 0.1699, -0.1077, 0.0752, -0.0548, 0.0406, -0.0302, 0.0223, -0.0162, 0.0115, -0.0079, 0.0052, -0.0032, 0.0017, -0.0005]
-    ndata = data/abs(data)
-    rd = ndata.real
-    ids = ndata.imag
-    audiodata = (rd*signal.convolve(ids, b, 'same')-ids *
-                  signal.convolve(rd, b, 'same'))/(rd*rd+ids*ids)  # rd*rd+ids*ids=1
-    audiodata = signal.decimate(audiodata, AUDIO_FACTOR, ftype="fir")
-    audiodata_amp = audiodata*1e4
-    # astype用于转化dateframe某一列的数据类型;这里是转为i2:int16
-    snd_data = audiodata_amp.astype(np.dtype('<i2')).tostring()
-    wav.append(snd_data)  # 向音频Queue添加数据
-    save_wav(WAVE_OUTPUT_FILENAME, CHANNELS, 2, AUDIORATE, wav)
-</code></pre>
-<p>最后，在DSP处理完成之后，上传到Web服务器上。网站服务器根据功率谱密度通过<code>echarts</code>框架的<code>JavaScript</code>代码实时渲染频谱图和瀑布图，同时函数触发器判断用户实时选择操作与服务器完成交互。根据我们测试，传统的实时解调最多只能同时支持4~8人收听不同的信号（Intel i7 CPU），为避免大规模的访问导致服务器带宽、性能不足，我们接入了<code>内容分发网络（CDN）</code>技术，依靠腾讯云部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。这样虽然牺牲了一部分实时性，即有部分更新缓存延迟，但是可以支持更多用户同时使用网站、收听信号，解决了高并发的一大难题。</p>
-<p>整个流程自动推进，并在主机上不断运行。在异步处理和多线程的运行形式下，主要功能已经无人值守地实现。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>目前网站是一个实现形式的Demo，还在不断完善中，发现bug欢迎在下方留言。</p>
-<blockquote>
-<p>附：<a href="">一种高效而简单的FM解调方法</a></p>
-</blockquote>
+                <h1 id="一种高效而简单的FM解调方法"><a href="#一种高效而简单的FM解调方法" class="headerlink" title="一种高效而简单的FM解调方法"></a>一种高效而简单的FM解调方法</h1><p>测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。</p>
+<p><img src="https://i.loli.net/2021/04/08/DVNMlXox6w7YOL4.jpg" alt="使用反正切函数的频率解调器.jpg"></p>
+<p>这是传统的离散信号FM解调方法，效果很好。解调器的瞬时输出频率为:</p>
+<!-- ![瞬时输出频率.jpg](https://i.loli.net/2021/04/08/HJ2yrfbOLNgvo4V.jpg) -->
+
+<p>$f(n)=\frac{f_s[\triangle\theta_{rad}(n)]}{2\pi}$</p>
+<p>其中$f_s$是以$Hz$为单位的采样率。</p>
+<p>计算瞬时相位$\theta(n)$需要反正切运算，如果没有大量计算资源很难精确实现。所以我们使用了一种无需计算中间$\theta(n)$相位（及其令人讨厌的反正切）并可用于上式中的计算$\triangle\theta(n)$的方案。我们首先根据以下定义使用连续时间变量来得出$\triangle\theta(n)$的算法：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$i(t)$</td>
+<td>同相信号</td>
+</tr>
+<tr>
+<td>$q(t)$</td>
+<td>正交信号</td>
+</tr>
+<tr>
+<td>$θ(t)$</td>
+<td>瞬时相位</td>
+</tr>
+<tr>
+<td>$∆θ(t)$</td>
+<td>$θ(t)$的时间导数</td>
+</tr>
+</tbody></table>
+<p>首先，我们令$r(t)=\frac{q(t)}{i(t)}$是我们要为其计算正切导数的信号。演算恒等式$tan^{-1}[r(t)]$的时间导数为:</p>
 
             </div>
             <hr/>
@@ -693,7 +690,7 @@
         repo: 'Web-learning',
         owner: 'yjw1268',
         admin: "yjw1268",
-        id: '2021-02-20T11-16-51',
+        id: '2021-02-16T11-22-59',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -718,24 +715,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/01/handout/">
+                <a href="/2021/02/19/websdr/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/20.jpg" class="responsive-img" alt="通信系统建模与仿真——软件无线电基础、测量、案例及5G">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/16.jpg" class="responsive-img" alt="WEBSDR简介">
                         
-                        <span class="card-title">通信系统建模与仿真——软件无线电基础、测量、案例及5G</span>
+                        <span class="card-title">WEBSDR简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            通信系统建模与仿真——软件无线电基础、测量、案例及5G软件无线电基础软件无线电的核心理念构造一个具有开放性、标准化、模块化的通用硬件平台，将各种功能，如工作频段、调制解调类型、数据格式、加密模式、通信协议等用软件来完成，并使A/D和D/A转
+                            关于WEBSDR网站的介绍
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
                         </span>
                         <span class="publish-author">
                             
@@ -767,25 +764,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/20/supportwebsdr/">
+                <a href="/2020/03/14/phm-ke-cheng-xue-xi-zhuan-zi-tuo-luo-gu-zhang-yu/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/1.jpg" class="responsive-img" alt="支持websdr">
+                        <img src="https://cdn.jsdelivr.net/gh/yjw1268/yjw1268.github.io@v0.1/medias/featureimages/20.jpg" class="responsive-img" alt="PHM课程学习-转子脱落故障预">
                         
-                        <span class="card-title">支持websdr</span>
+                        <span class="card-title">PHM课程学习-转子脱落故障预</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            帮助WEBSDR开发WEBSDR是一个正在开发中的项目，目前出于一些限制还有很多开源完善的空间。我们也计划在项目稳定后开放为MIT许可的开源项目，完全免费使用。但是，如果没有适当的资金支持，维护和开发项目新功能所需的工作量将无法持续。
-途径
+                            转子部件脱落故障预测实验
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-14
                             </span>
                         <span class="publish-author">
                             
@@ -802,8 +798,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SDR/">
-                        <span class="chip bg-color">SDR</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -940,6 +936,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
