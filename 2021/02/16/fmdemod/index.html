@@ -5,12 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="一种高效而简单的FM解调方法, Blog">
-    <meta name="description" content="一种高效而简单的FM解调方法测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。
+    <meta name="description" content="一种高效而简单的FM解调方法
+本文由基于LaTex的mathjax数学公式显示支持，加载可能需要一定时间。
 
-这是传统的离散信号FM解调方法，效果很好。解调器的瞬时输出频率为:
+测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。
 
-
-$f(n)=\frac{f_s[\tri">
+这是传统的离散信号FM解调方法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -472,14 +472,17 @@ $f(n)=\frac{f_s[\tri">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一种高效而简单的FM解调方法"><a href="#一种高效而简单的FM解调方法" class="headerlink" title="一种高效而简单的FM解调方法"></a>一种高效而简单的FM解调方法</h1><p>测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。</p>
+                <h1 id="一种高效而简单的FM解调方法"><a href="#一种高效而简单的FM解调方法" class="headerlink" title="一种高效而简单的FM解调方法"></a>一种高效而简单的FM解调方法</h1><blockquote>
+<p>本文由基于<code>LaTex</code>的<code>mathjax</code>数学公式显示支持，加载可能需要一定时间。</p>
+</blockquote>
+<p>测量复正弦信号瞬时频率的一种常用技术是计算信号瞬时$\theta(n)$相位的导数，如下图所示。</p>
 <p><img src="https://i.loli.net/2021/04/08/DVNMlXox6w7YOL4.jpg" alt="使用反正切函数的频率解调器.jpg"></p>
 <p>这是传统的离散信号FM解调方法，效果很好。解调器的瞬时输出频率为:</p>
 <!-- ![瞬时输出频率.jpg](https://i.loli.net/2021/04/08/HJ2yrfbOLNgvo4V.jpg) -->
 
-<p>$f(n)=\frac{f_s[\triangle\theta_{rad}(n)]}{2\pi}$</p>
+<p>$$f(n)=\frac{f_s[∆\theta_{rad}(n)]}{2\pi}$$</p>
 <p>其中$f_s$是以$Hz$为单位的采样率。</p>
-<p>计算瞬时相位$\theta(n)$需要反正切运算，如果没有大量计算资源很难精确实现。所以我们使用了一种无需计算中间$\theta(n)$相位（及其令人讨厌的反正切）并可用于上式中的计算$\triangle\theta(n)$的方案。我们首先根据以下定义使用连续时间变量来得出$\triangle\theta(n)$的算法：</p>
+<p>计算瞬时相位$\theta(n)$需要反正切运算，如果没有大量计算资源很难精确实现。所以我们使用了一种无需计算中间$\theta(n)$相位（及其令人讨厌的反正切）并可用于上式中的计算$∆\theta(n)$的方案。我们首先根据以下定义使用连续时间变量来得出$∆\theta(n)$的算法：</p>
 <table>
 <thead>
 <tr>
@@ -505,6 +508,17 @@ $f(n)=\frac{f_s[\tri">
 </tr>
 </tbody></table>
 <p>首先，我们令$r(t)=\frac{q(t)}{i(t)}$是我们要为其计算正切导数的信号。演算恒等式$tan^{-1}[r(t)]$的时间导数为:</p>
+<p>$$∆θ(t)=\frac{d(tan^{-1}[r(t)])}{dt}=\frac{1}{1+r^2(t)}\frac{d[r(t)]}{dt}$$</p>
+<p>因为$\frac{d[r(t)]}{dt}=\frac{d[\frac{q(t)}{i(t)}]}{dt}$，所以我们将微积分恒等式写做：</p>
+<p>$$\frac{d[r(t)]}{dt}=\frac{d[\frac{q(t)}{i(t)}]}{dt}=\frac{i(t)\frac{d[q(t)]}{dt}-q(t)\frac{d[i(t)]}{dt}}{i^2(t)}$$</p>
+<p>代入前式继而有：</p>
+<p>$$∆θ(t)=\frac{1}{1+r^2(t)}\frac{i(t)\frac{d[q(t)]}{dt}-q(t)\frac{d[i(t)]}{dt}}{i^2(t)}$$</p>
+<p>将$r(t)$替换，得：</p>
+<p>$$∆θ(t)=\frac{1}{1+[\frac{q(t)}{i(t)}]^2}\frac{i(t)\frac{d[q(t)]}{dt}-q(t)\frac{d[i(t)]}{dt}}{i^2(t)}$$</p>
+<p>接下来，我们将等式中第一个分数的分母展开与第二个分数分母相乘,然后将t替换为我们的离散时间变量n，化简得出最终结果为:</p>
+<p>$$∆θ(n)=\frac{i(n)\frac{d[q(n)]}{dn}-q(n)\frac{d[i(n)]}{dn}}{i^2(n)+q^2(n)}$$</p>
+<p>微分器是抽头延迟线FIR微分滤波器，具有奇数个抽头。当微分器是系数为1,0，–1的FIR滤波器时，得到了有效的结果。</p>
+<p>如果$i(n)+ jq(n)$信号纯粹是FM信号且受严格限制，使得$i^2(n)+q^2(n)=Const$（在硬件RTL中为常数1），则等式中的分母计算无需执行。在这种情况下，使用1,0，–1系数微分器，将FM解调器简化方法即可，其中比例运算直接与常数的倒数相乘。</p>
 
             </div>
             <hr/>

@@ -477,7 +477,7 @@
 <p>获取IQ数据后，接下来进行数字信号处理（DSP）。</p>
 <ol>
 <li>首先使用非常适合于进行交互式绘图的<code>matplotlib</code>子包<code>pylab</code>的<code>psd</code>函数（Power Spectral Density Estimates Using FFT）计算功率谱密度，得到信号的频谱。目前我们以91.2MHz为中心频率及2.8MHz的采样率进行采样，从网站渲染的频谱图可以看见，平时能收听到所在地（北京）3~4个无线电台，具有典型性。</li>
-<li>接着，使用Python中最经典的开源的数学、科学和工程计算包<code>scipy</code>分析信号。对于每次的采样数据，应用抗混叠滤波器（这里使用了带汉明窗的30点FIR滤波器）后，对信号进行下采样；对于信号解调，有很多对FM信号进行解调的方法，我们选取了<a href="">一种高效而简单的FM解调方法</a>。信号在时域中的微分等效于信号的傅里叶变换乘以虚斜坡函数。也就是说，要对信号求导，请将其传递给具有响应 H(ω)=jω 的滤波器。使用<code>firls</code>和<code>differentiator</code>选项获得逼近理想的微分器,为节约运行时间，代码部分已经直接以数组形式呈现。</li>
+<li>接着，使用Python中最经典的开源的数学、科学和工程计算包<code>scipy</code>分析信号。对于每次的采样数据，应用抗混叠滤波器（这里使用了带汉明窗的30点FIR滤波器）后，对信号进行下采样；对于信号解调，有很多对FM信号进行解调的方法，我们选取了<a href="https://blog.jmfz.online/2021/02/16/fmdemod/" target="_blank" rel="noopener">一种高效而简单的FM解调方法</a>。信号在时域中的微分等效于信号的傅里叶变换乘以虚斜坡函数。也就是说，要对信号求导，请将其传递给具有响应 H(ω)=jω 的滤波器。使用<code>firls</code>和<code>differentiator</code>选项获得逼近理想的微分器,为节约运行时间，代码部分已经直接以数组形式呈现。</li>
 <li>最后将IQ信号实部和虚部分别卷积处理后，再次下采样输出为音频信号，保存为流媒体格式。该部分核心核心代码如下：</li>
 </ol>
 <pre class=" language-Python"><code class="language-Python">for data in datas:
@@ -506,7 +506,7 @@
 <p>整个流程自动推进，并在主机上不断运行。在异步处理和多线程的运行形式下，主要功能已经无人值守地实现。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>目前网站是一个实现形式的Demo，还在不断完善中，发现bug欢迎在下方留言。</p>
 <blockquote>
-<p>附：<a href="">一种高效而简单的FM解调方法</a></p>
+<p>附录：<a href="https://blog.jmfz.online/2021/02/16/fmdemod/" target="_blank" rel="noopener">一种高效而简单的FM解调方法</a></p>
 </blockquote>
 
             </div>
